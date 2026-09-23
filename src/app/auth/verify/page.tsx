@@ -1,12 +1,12 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { Suspense, useState, useRef, useEffect } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Button } from '@/components/ui/Button'
 import { useToast } from '@/components/ui/Toast'
 import { getSupabaseClient } from '@/lib/supabase/client'
 
-export default function OTPVerifyPage() {
+function OTPVerifyContent() {
   const router = useRouter()
   const params = useSearchParams()
   const email = params.get('email') ?? ''
@@ -148,5 +148,13 @@ export default function OTPVerifyPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function OTPVerifyPage() {
+  return (
+    <Suspense>
+      <OTPVerifyContent />
+    </Suspense>
   )
 }

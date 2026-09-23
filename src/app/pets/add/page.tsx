@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useForm, Controller } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -24,7 +24,7 @@ const petSchema = z.object({
 })
 type PetForm = z.infer<typeof petSchema>
 
-export default function AddPetPage() {
+function AddPetContent() {
   const router = useRouter()
   const params = useSearchParams()
   const isOnboarding = params.get('onboarding') === 'true'
@@ -250,5 +250,13 @@ export default function AddPetPage() {
         </form>
       </main>
     </div>
+  )
+}
+
+export default function AddPetPage() {
+  return (
+    <Suspense>
+      <AddPetContent />
+    </Suspense>
   )
 }

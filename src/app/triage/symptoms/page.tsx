@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useForm, Controller } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -34,7 +34,7 @@ const DURATION_OPTIONS = [
   { value: '72', label: 'More than 48 hours' },
 ]
 
-export default function TriageSymptomsPage() {
+function TriageSymptomsContent() {
   const router = useRouter()
   const params = useSearchParams()
   const preselectedPetId = params.get('petId') ?? ''
@@ -313,5 +313,13 @@ export default function TriageSymptomsPage() {
 
       <BottomTabBar />
     </div>
+  )
+}
+
+export default function TriageSymptomsPage() {
+  return (
+    <Suspense>
+      <TriageSymptomsContent />
+    </Suspense>
   )
 }
