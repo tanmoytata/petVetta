@@ -69,7 +69,7 @@ export default function OTPVerifyPage() {
         return
       }
 
-      toast.success('Email verified! Let\'s add your first pet.')
+      toast.success("Email verified! Let's add your first pet.")
       router.push('/pets/add?onboarding=true')
     } catch {
       toast.error('Verification failed. Please try again.')

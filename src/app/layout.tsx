@@ -4,7 +4,7 @@ import { Providers } from '@/components/Providers'
 import { ToastContainer } from '@/components/ui/Toast'
 
 export const metadata: Metadata = {
-  title: 'petVetta — Know What\'s Wrong. Know What to Do.',
+  title: "petVetta — Know What's Wrong. Know What to Do.",
   description:
     'AI-powered pet health companion. Instantly triage symptoms, manage health records, and connect with trusted vets.',
   manifest: '/manifest.json',

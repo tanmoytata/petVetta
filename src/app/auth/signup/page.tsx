@@ -60,7 +60,7 @@ export default function SignupPage() {
 
       if (authData.user) {
         if (authData.user.email_confirmed_at) {
-          toast.success('Account created! Let's add your first pet.')
+          toast.success("Account created! Let's add your first pet.")
           router.push('/pets/add?onboarding=true')
         } else {
           router.push(`/auth/verify?email=${encodeURIComponent(data.email)}`)
